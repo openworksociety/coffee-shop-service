@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-1.cvs6lphadbpb.ap-south-1.rds.amazonaws.com:3306/coffee
+    username: admin
+    password: password
+
+#travel-database.cvs6lphadbpb.ap-south-1.rds.amazonaws.com
+#jdbc:mysql://localhost:3306/traveldev
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.datasource.initialization-mode: ALWAYS
+spring.jpa.hibernate.ddl-auto: update
+spring.show.sql: true
+
+#show sql statement
+logging.level.org.hibernate.SQL: debug
+#show sql values
+logging.level.org.hibernate.type.descriptor.sql: trace
+
+server.port: 8085
