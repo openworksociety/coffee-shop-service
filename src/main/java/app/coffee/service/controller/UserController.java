@@ -95,9 +95,9 @@ public class UserController {
 
 		for (int i = 1; i <= id.intValue(); i++) {
 			User user = new User();
-			user.setFname("Haridas" + i);
-			user.setLname("Kanure" + i);
-			user.setUsername("test" + i + "@gmail.com");
+			user.setFname("User" + i);
+			user.setLname("User" + i);
+			user.setUsername("user" + i);
 			user.setPassword("password" + i);
 			userRepository.save(user);
 		}
