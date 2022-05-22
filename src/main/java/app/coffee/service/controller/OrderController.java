@@ -48,7 +48,9 @@ public class OrderController {
 		List<Order> orders = new ArrayList<Order>();
 		Iterable<Order> iterable = orderRepository.findAll();
 		iterable.forEach(order -> {
-			orders.add(order);
+			if (!order.isDeactivated()) {
+				orders.add(order);
+			}
 		});
 		return orders;
 	}

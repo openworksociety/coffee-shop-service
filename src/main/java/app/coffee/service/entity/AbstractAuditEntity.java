@@ -12,10 +12,10 @@ public class AbstractAuditEntity implements Serializable {
 	private static final long serialVersionUID = 1593946058183148642L;
 
 	@Column(name = "MODIFIED_BY")
-	private Long modifiedBy = 1L;
+	private Long modifiedBy;
 
 	@Column(name = "CREATED_BY", nullable = false, updatable = false)
-	private Long createdBy = 1L;
+	private Long createdBy;
 
 	@Column(name = "MODIFIED_DATE")
 	private Date modifiedDate = new Date();

@@ -23,19 +23,19 @@ public class Order extends AbstractAuditEntity {
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 
-	@Column(name = "NAME")
+	@Column(name = "NAME", nullable = false)
 	private String name;
 
-	@Column(name = "CONTACT", length = 10)
+	@Column(name = "CONTACT", length = 10, nullable = false)
 	private Long contact;
 
-	@Column(name = "TAX_AMOUNT")
+	@Column(name = "TAX_AMOUNT", nullable = false)
 	private double taxAmount;
 
-	@Column(name = "SUBTOTAL_AMOUNT")
+	@Column(name = "SUBTOTAL_AMOUNT", nullable = false)
 	private double subTotalAmount;
 
-	@Column(name = "TOTAL_AMOUNT")
+	@Column(name = "TOTAL_AMOUNT", nullable = false)
 	private double totalAmount;
 
 	@Column(name = "NOTE")

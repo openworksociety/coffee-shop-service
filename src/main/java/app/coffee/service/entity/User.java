@@ -23,16 +23,16 @@ public class User extends AbstractAuditEntity {
 	@Column(name = "ID", updatable = false, nullable = false)
 	private Long id;
 
-	@Column(name = "FIRST_NAME")
+	@Column(name = "FIRST_NAME", nullable = false)
 	private String fname;
 
 	@Column(name = "LAST_NAME")
 	private String lname;
 
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME", nullable = false)
 	private String username;
 
-	@Column(name = "PASSWORD")
+	@Column(name = "PASSWORD", nullable = false)
 	private String password;
 
 	public User() {

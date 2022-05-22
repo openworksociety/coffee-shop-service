@@ -69,10 +69,25 @@ public class ProductController {
 	public void delete(@PathVariable Long id) {
 		Optional<Product> product = productRepository.findById(id);
 		if (product.isPresent()) {
-			product.get().setDeactivated(true);
-			product.get().setModifiedDate(new Date());
-			productRepository.save(product.get());
+			if (product.get().isDeactivated()) {
+				productRepository.delete(product.get());
+			} else {
+				product.get().setDeactivated(true);
+				product.get().setModifiedDate(new Date());
+				productRepository.save(product.get());
+			}
 		}
+	}
+
+	@ResponseBody
+	@GetMapping("/findAllDeactive")
+	public List<Product> findAllDeactive() {
+		List<Product> products = new ArrayList<Product>();
+		Iterable<Product> iterable = productRepository.findAll();
+		iterable.forEach(product -> {
+			products.add(product);
+		});
+		return products;
 	}
 
 }

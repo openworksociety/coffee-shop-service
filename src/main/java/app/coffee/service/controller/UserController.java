@@ -69,10 +69,25 @@ public class UserController {
 	void delete(@PathVariable Long id) {
 		Optional<User> user = userRepository.findById(id);
 		if (user.isPresent()) {
-			user.get().setDeactivated(true);
-			user.get().setModifiedDate(new Date());
-			userRepository.save(user.get());
+			if (user.get().isDeactivated()) {
+				userRepository.delete(user.get());
+			} else {
+				user.get().setDeactivated(true);
+				user.get().setModifiedDate(new Date());
+				userRepository.save(user.get());
+			}
 		}
+	}
+
+	@ResponseBody
+	@GetMapping("/findAllDeactive")
+	List<User> findAllDeactive() {
+		List<User> users = new ArrayList<User>();
+		Iterable<User> iterable = userRepository.findAll();
+		iterable.forEach(user -> {
+			users.add(user);
+		});
+		return users;
 	}
 
 	@PostMapping("/test/{id}")
